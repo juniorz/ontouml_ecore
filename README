@@ -1,0 +1,19 @@
+Essa é uma implementação do metamodelo da linguagem OntoUML (link).
+
+Esse trabalho é baseado no trabalho de Roberto Carraretto (link):
+ * Diferente do trabalho original, que incorpora o metamodelo da UML2, este trabalho extende o metamodelo da UML2 (versão 2.2)
+ http://www.eclipse.org/modeling/mdt/uml2/docs/guides/UML2_3.0_Migration_Guide/guide.html
+
+Duvidas:
+1) Atualmente `DirectedBinaryAssociation extends uml::Association`. Será que não seria `DirectedBinaryAssociation extends uml::Extension`?
+
+
+Dicas:
+
+Os que são importados como callable invariant deveriam ser feitos com esse formato:
+operation not_own_self(diagnostics : ecore::EDiagnosticChain, context : ecore::EMap<ecore::EJavaObject,ecore::EJavaObject>) : Boolean
+	{
+		body: not self.allOwnedElements()->includes(self);
+	}
+
+Dicas 2 (escrver do zero)
